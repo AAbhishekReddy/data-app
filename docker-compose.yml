@@ -1,0 +1,9 @@
+version: '3'
+
+services: 
+    classification-service:
+        build: .
+        volumes: 
+            - .:/app
+        ports: 
+            - 8501:8501
