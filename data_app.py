@@ -5,10 +5,12 @@ import os
 import joblib
 
 from titanic_req.titanic_model import titanic
-from support_models import classsification, regression
+from support_models import classsification, regression, object_detect
 
-# Global variables
-model_select_preview = "Classification Models"
+# Disabling warnings.
+st.set_option('deprecation.showfileUploaderEncoding', False)
+
+st.beta_set_page_config(page_title = "DATA APP", page_icon = "🚢", layout = "centered", initial_sidebar_state = "expanded")
 
 # Creating the support functions
 def classification_model(mainwindow_slots, sidebar_slots):
@@ -30,6 +32,12 @@ def regression_model(mainwindow_slots, sidebar_slots):
     else:
         regression.nyse_data(sidebar_slots, predict_button)
 
+def object_detection(sidebar_slots):
+    st.write("### Select the Dataset to which you want to apply the model")
+    data = st.radio("Datasets", options = ["Dogs and Cats"])
+
+    if data == "Dogs and Cats":
+        object_detect.cats_dogs(sidebar_slots, predict_button)
 
 if __name__ == "__main__":
     # Creating the side bar empty fields.
@@ -55,7 +63,7 @@ if __name__ == "__main__":
 
     # Creating a radio button for slecting the type of models.
     st.write("## Select the type of models that you want to play with below")
-    model_select = st.radio("Select the models of your choice", options = ["Classification Models", "Regression Models"])
+    model_select = st.radio("Select the models of your choice", options = ["Classification Models", "Regression Models", "Object Detection Model"])
 
     # Creating the mainwindow slots.
     mainwindow_slots = []
@@ -67,6 +75,9 @@ if __name__ == "__main__":
         classification_model(mainwindow_slots, sidebar_slots)
 
         
-    else:
+    elif model_select == "Regression Models":
         regression_model(mainwindow_slots, sidebar_slots)
+
+    else:
+        object_detection(sidebar_slots)
 

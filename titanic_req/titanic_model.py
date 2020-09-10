@@ -5,6 +5,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 import streamlit as st
+from PIL import Image
 
 import os
 
@@ -40,10 +41,15 @@ class titanic():
         dat = pd.DataFrame(dat, index = [0])
 
         st.write("""
-        # Titanic Survival Prediction
-
-        Enter the passenger details in the sidebar to view the predictions
+        # Women and children get on the lifeboats
         """)
+        image_path = os.path.join(os.getcwd(), "support_models")
+        image_path = os.path.join(image_path, "images")
+        image_path = os.path.join(image_path, "titanic.jpg")
+        banner = Image.open(image_path)
+        st.image(banner, use_column_width = True)
+
+        st.write("Enter the passenger details in the sidebar and press predict")
 
         if predict_button:
             st.subheader("User Input features")

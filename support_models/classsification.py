@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 import joblib
+from PIL import Image
 
 from titanic_req.titanic_model import titanic
 
@@ -61,9 +62,14 @@ def cars_prediction(mainwindow_slots, sidebar_slots, predict_button):
 
     st.write("""
     # Cars Evaluation
-
-    Enter the details of your car to view the predictions
     """)
+    image_path = os.path.join(os.getcwd(), "support_models")
+    image_path = os.path.join(image_path, "images")
+    image_path = os.path.join(image_path, "cars.jpg")
+    banner = Image.open(image_path)
+    st.image(banner, use_column_width = True)
+
+    st.write("Enter the details of your car to view the predictions")
 
     if predict_button:
         st.subheader("User Input features")

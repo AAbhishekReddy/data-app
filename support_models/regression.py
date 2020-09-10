@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 import joblib
+from PIL import Image
 
 def beer_data(sidebar_slots, predict_button):
     beer_name = sidebar_slots[0].text_input("Beer Name:", value = "British Empire")
@@ -22,10 +23,15 @@ def beer_data(sidebar_slots, predict_button):
     beers = pd.DataFrame(beers, index = [0])
 
     st.write("""
-        # Beer Review Prediction
-
-        Enter the beer details in the sidebar to view the predictions
+        # Grab a beer....
         """)
+    image_path = os.path.join(os.getcwd(), "support_models")
+    image_path = os.path.join(image_path, "images")
+    image_path = os.path.join(image_path, "craft-beer.jpg")
+    banner = Image.open(image_path)
+    st.image(banner, use_column_width = True)
+
+    st.write("Enter the beer details in the sidebar to view the evaluation of the beer")
 
     if predict_button:
         st.subheader("User Input features")
@@ -58,9 +64,14 @@ def nyse_data(sidebar_slots, predict_button):
 
     st.write("""
         # NYSE Stock Prediction
-
-        Enter the stock details in the sidebar to view the predictions
         """)
+    image_path = os.path.join(os.getcwd(), "support_models")
+    image_path = os.path.join(image_path, "images")
+    image_path = os.path.join(image_path, "nyse.jpg")
+    banner = Image.open(image_path)
+    st.image(banner, use_column_width = True)
+
+    st.write("Enter the stock details in the sidebar to view the predictions")
 
     if predict_button:
         st.subheader("User Input features")
