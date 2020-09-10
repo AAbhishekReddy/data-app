@@ -1,9 +1,9 @@
 # data-app
 
 <div align="center">
-<img src =https://raw.githubusercontent.com/AAbhishekReddy/data-app/master/images_readme/streamlit.png style="width:170px;height:150px">
-<img src =https://raw.githubusercontent.com/AAbhishekReddy/data-app/master/images_readme/kt.png style="width:250px;height:100px">
-<img src =https://raw.githubusercontent.com/AAbhishekReddy/data-app/master/images_readme/docker.png style="width:170px;height:150px">
+<img src ="images_readme\Asset 1readme.png" height=150 width=700>
+<!-- <img src =https://raw.githubusercontent.com/AAbhishekReddy/data-app/master/images_readme/kt.png style="width:250px;height:100px">
+<img src =https://raw.githubusercontent.com/AAbhishekReddy/data-app/master/images_readme/docker.png style="width:170px;height:150px"> -->
 </div>
 
 ## Introduction
